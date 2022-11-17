@@ -37,9 +37,11 @@ state = {
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter((contact) => contact.name.toLowerCase().includes(normalizedFilter));
   }
-
+  handleChange = (evt) => {
+    const { name, value} = evt.currentTarget
+    this.setState({ [name]: value} )
+};
   render() {
-
     const normalizedFilter = this.state.filter.toLowerCase();
     const filteredContacts = this.state.contacts.filter((contact) => contact.name.toLowerCase().includes(normalizedFilter));
     // const filteredContacts = this.getFilteredContacts();
@@ -78,7 +80,12 @@ state = {
           name='filter'
           value={this.state.filter}
         /> */}
-          {/* <Filter value={filter} onChange={this.handleChange} /> */}
+          {/* <Filter  /> */}
+          <Filter value={normalizedFilter} onChange={ this.handleChange} />
+        {/* <label htmlFor="">
+           Finde contacts by name
+           <input type="text" name='filter' value={normalizedFilter} onChange={this.handleChange} />
+        </label> */}
           <ul>
             {filteredContacts.map((contact)=>(<li key={contact.id}>{contact.name}: {contact.number}</li>))}
           </ul>
