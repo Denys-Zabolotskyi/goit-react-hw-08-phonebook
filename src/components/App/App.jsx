@@ -17,13 +17,17 @@ state = {
   }
 
   addContact = ({ name, number }) => {
-    const contact = {
+    const newContact = {
       id: nanoid(7),
       name,
       number,
     };
-    this.setState((prevState) => ({
-      contacts: [contact, ...prevState.contacts],
+    const { contacts } = this.state;
+    contacts.find(contact => newContact.name.toLowerCase() === contact.name.toLocaleLowerCase())
+      ? alert(`${newContact.name} is already in contacts.`)
+      :this.setState(({contacts}) => ({
+      contacts: [newContact, ...contacts],
+    
     }))
     
   };
