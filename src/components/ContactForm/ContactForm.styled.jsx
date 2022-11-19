@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
-display: flex;
-flex-direction: column;
-padding: 0 20px;
-border: 2px solid gray;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  border: 2px solid gray;
 `;
 
 export const FormLabel = styled.label`

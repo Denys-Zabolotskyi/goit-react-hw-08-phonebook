@@ -1,23 +1,22 @@
 import styled from '@emotion/styled';
 
 export const List = styled.ul`
-    padding:10px;
-    background-color: #cccccc;
-    border-radius: 10px;
+  padding:10px;
+  background-color: #cccccc;
+  border-radius: 10px;
 `;
 
 export const Item = styled.li`
-    display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
+  display: flex;
+  &:not(:last-child) {
     align-items: baseline;
-    &:not(:last-child) {
-    // margin-bottom: 5px;
-    }
+}
 `;
 
 export const Button = styled.button`
-    padding:5px;
-    width: 100px;
+  padding:5px;
+  width: 100px;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.25;
