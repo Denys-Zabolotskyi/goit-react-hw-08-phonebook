@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Item, Button } from './ContactList.styled';
-const ContactList = ({contacts}) => {
+const ContactList = ({contacts, onDeleteContact}) => {
     return (
     
     <List>
@@ -9,7 +9,7 @@ const ContactList = ({contacts}) => {
             <p>
               {name} : {number}
                 </p>
-                <Button>Delete</Button>
+                <Button onClick={()=> onDeleteContact(id)}>Delete</Button>
             </Item>))}
     </List>
     );

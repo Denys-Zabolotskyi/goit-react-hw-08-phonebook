@@ -37,6 +37,10 @@ state = {
     this.setState({ [name]: value} )
   };
 
+  deleteContact = (contactID) => {
+    this.setState(prevState => ({ contacts: prevState.contacts.filter(contact => contact.id !== contactID) }))
+  };
+
   render() {
     const normalizedFilter = this.state.filter.toLowerCase();
     const filteredContacts = this.state.contacts.filter((contact) => contact.name.toLowerCase().includes(normalizedFilter));
@@ -47,7 +51,7 @@ state = {
         <ContactForm onSubmit={this.addContact } />
         <SecondaryTitle>Contacts</SecondaryTitle>
         <Filter value={normalizedFilter} onChange={ this.handleChange} />
-        <ContactList contacts={filteredContacts}/>      
+        <ContactList contacts={filteredContacts} onDeleteContact={this.deleteContact} />      
       </Container>
     );
   }
