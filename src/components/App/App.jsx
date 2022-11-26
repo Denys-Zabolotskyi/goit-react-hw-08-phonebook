@@ -16,6 +16,21 @@ state = {
   filter: '',
   }
 
+ componentDidMount() {
+   const contactList = localStorage.getItem('contacts');
+   const parsedContactList = JSON.parse(contactList);
+   if (parsedContactList) {
+     this.setState ({ contacts: parsedContactList,})
+   }
+   
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+   };
+
   addContact = ({ name, number }) => {
     const newContact = {
       id: nanoid(7),
