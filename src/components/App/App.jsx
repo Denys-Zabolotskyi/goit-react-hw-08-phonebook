@@ -36,7 +36,7 @@ const App = () => {
       contact => newContact.name.toLowerCase() === contact.name.toLowerCase()
     )
       ? alert(`${newContact.name} is already in contacts.`)
-      : setContacts(() => [...contacts, newContact]);
+      : setContacts(prevContacts => [...contacts, newContact]);
   };
 
   const handleChangeFilter = evt => {
@@ -49,7 +49,10 @@ const App = () => {
   );
 
   const deleteContact = contactID => {
-    setContacts(contacts.filter(contact => contact.id !== contactID));
+    setContacts(prevContacts =>
+      prevContacts.filter(contact => contact.id !== contactID)
+    );
+    // setContacts(contacts.filter(contact => contact.id !== contactID));
   };
 
   return (
