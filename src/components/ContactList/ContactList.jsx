@@ -1,8 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { List, Item, Button } from './ContactList.styled';
+import { useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
 
-const ContactList = ({ contacts, onDeleteContact }) => {
+// const ContactList = ({ contacts, onDeleteContact }) => {
+//   return (
+//     <List>
+//       {contacts.map(({ id, name, number }) => (
+//         <Item key={id}>
+//           <p>
+//             {name} : {number}
+//           </p>
+//           <Button onClick={() => onDeleteContact(id)}>Delete</Button>
+//         </Item>
+//       ))}
+//     </List>
+//   );
+// };
+const ContactList = ({ onDeleteContact }) => {
+  const contacts = useSelector(getContacts);
+  // console.log(contacts);
+
   return (
     <List>
       {contacts.map(({ id, name, number }) => (
@@ -16,6 +35,7 @@ const ContactList = ({ contacts, onDeleteContact }) => {
     </List>
   );
 };
+
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({

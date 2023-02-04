@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, FormLabel, FormInput, FormButton } from './ContactForm.styled';
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/actions';
 
-const ContactForm = ({ addContact }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -22,11 +25,23 @@ const ContactForm = ({ addContact }) => {
     }
   };
 
+  // const handleSubmit = evt => {
+  //   evt.preventDefault();
+  //   addContact({ name, number });
+  //   setName('');
+  //   setNumber('');
+  // };
+
   const handleSubmit = evt => {
     evt.preventDefault();
-    addContact({ name, number });
-    setName('');
-    setNumber('');
+    const name = evt.currentTarget.name.value;
+    const number = evt.currentTarget.number.value;
+    // const name = evt.currentTarget.number.value;
+    // console.log(name);
+    // const number = evt.target.value;
+    console.log(name);
+    console.log(number);
+    dispatch(addContact(name, number));
   };
 
   return (
