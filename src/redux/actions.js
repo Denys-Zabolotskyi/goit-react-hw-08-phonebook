@@ -11,9 +11,16 @@ export const addContact = (name, number) => {
   };
 };
 
-export const deleteContact = ({ id }) => {
+export const deleteContact = id => {
   return {
-    type: 'tasks/deleteTask',
+    type: 'contact/deleteContact',
     payload: id,
+  };
+};
+
+export const changeFilter = value => {
+  return {
+    type: 'filter/changeFilter',
+    payload: value,
   };
 };

@@ -36,11 +36,6 @@ const ContactForm = () => {
     evt.preventDefault();
     const name = evt.currentTarget.name.value;
     const number = evt.currentTarget.number.value;
-    // const name = evt.currentTarget.number.value;
-    // console.log(name);
-    // const number = evt.target.value;
-    console.log(name);
-    console.log(number);
     dispatch(addContact(name, number));
   };
 

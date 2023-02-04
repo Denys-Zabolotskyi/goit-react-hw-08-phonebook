@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { List, Item, Button } from './ContactList.styled';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from 'redux/selectors';
+import { deleteContact } from 'redux/actions';
 
 // const ContactList = ({ contacts, onDeleteContact }) => {
 //   return (
@@ -18,8 +19,9 @@ import { getContacts } from 'redux/selectors';
 //     </List>
 //   );
 // };
-const ContactList = ({ onDeleteContact }) => {
+const ContactList = () => {
   const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
   // console.log(contacts);
 
   return (
@@ -29,7 +31,7 @@ const ContactList = ({ onDeleteContact }) => {
           <p>
             {name} : {number}
           </p>
-          <Button onClick={() => onDeleteContact(id)}>Delete</Button>
+          <Button onClick={() => dispatch(deleteContact(id))}>Delete</Button>
         </Item>
       ))}
     </List>
