@@ -42,7 +42,4 @@ const ContactForm = () => {
   );
 };
 
-// ContactForm.propTypes = {
-//   addContact: PropTypes.func.isRequired,
-// };
 export default ContactForm;
