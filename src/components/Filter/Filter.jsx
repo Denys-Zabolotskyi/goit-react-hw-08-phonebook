@@ -8,10 +8,10 @@ import { changeFilter } from 'redux/actions';
 const Filter = () => {
   const dispatch = useDispatch();
   const value = useSelector(getFilter);
-  console.log(value);
+
   const onHandelChange = evt => {
-    dispatch(changeFilter(evt.currentTarget.value));
-    console.log(evt.currentTarget.value);
+    const inputValue = evt.target.value;
+    dispatch(changeFilter(inputValue));
   };
 
   return (
