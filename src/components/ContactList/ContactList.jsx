@@ -8,7 +8,6 @@ const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-
   const filterContactsOnChange = () => {
     if (!filter) {
       return contacts;

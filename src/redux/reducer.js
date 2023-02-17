@@ -1,4 +1,5 @@
-import { combineReducers } from 'redux';
+import { createReducer } from '@reduxjs/toolkit';
+import { addContact, deleteContact, changeFilter } from './actions';
 
 const contactsInitialState = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -7,33 +8,19 @@ const contactsInitialState = [
   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 ];
 
-export const contactsReducer = (state = contactsInitialState, action) => {
-  switch (action.type) {
-    case 'contact/addContact':
-      return [...state, action.payload];
-
-    case 'contact/deleteContact':
-      return state.filter(contact => contact.id !== action.payload);
-    default:
-      // Каждый редюсер получает все экшены отправленные в стор.
-      // Если редюсер не должен обрабатывать какой-то тип экшена,
-      // необходимо вернуть существующее состояние без изменений.
-      return state;
-  }
-};
+export const contactsReducer = createReducer(contactsInitialState, {
+  [addContact]: (state, action) => {
+    return [...state, action.payload];
+  },
+  [deleteContact]: (state, action) => {
+    return state.filter(contact => contact.id !== action.payload);
+  },
+});
 
 const filterInitialState = '';
 
-export const filterReducer = (state = filterInitialState, action) => {
-  switch (action.type) {
-    case 'filter/changeFilter':
-      return (state = action.payload);
-    default:
-      return state;
-  }
-};
-
-export const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  filter: filterReducer,
+export const filterReducer = createReducer(filterInitialState, {
+  [changeFilter]: (state, action) => {
+    return (state = action.payload);
+  },
 });
