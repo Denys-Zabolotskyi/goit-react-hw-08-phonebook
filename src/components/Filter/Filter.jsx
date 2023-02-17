@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Label, Input } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from 'redux/selectors';
-import { changeFilter } from 'redux/actions';
+import { changeFilter } from 'redux/filterSlice';
 
 const Filter = () => {
   const dispatch = useDispatch();

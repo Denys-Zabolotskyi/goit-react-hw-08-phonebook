@@ -16,15 +16,17 @@
 // });
 
 import { configureStore } from '@reduxjs/toolkit';
+
 //=============== Before ========================
 // import { tasksReducer, filtersReducer } from "./reducer";
 //=============== After ========================
-import { contactsReducer } from 'components/ContactList/contactsSlice';
-import { filtersReducer } from './filtersSlice';
+// import { contactsReducer, filterReducer } from './reducer';
+import { contactsReducer } from './contactsSlice';
+import { changeFilter } from './filterSlice';
 
 export const store = configureStore({
   reducer: {
-    tasks: tasksReducer,
-    filters: filtersReducer,
+    contacts: contactsReducer,
+    filter: changeFilter,
   },
 });

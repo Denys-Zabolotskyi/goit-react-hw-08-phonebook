@@ -2,7 +2,7 @@ import React from 'react';
 import { List, Item, Button } from './ContactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/actions';
+import { deleteContact } from 'redux/contactsSlice';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,9 @@ const ContactList = () => {
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
+  // const filterContactsOnChange = contacts?.filter(contact =>
+  //   contact.name.toLowerCase().includes(filter.toLowerCase)
+  // );
 
   return (
     <List>
