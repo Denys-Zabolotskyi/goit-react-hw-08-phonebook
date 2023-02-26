@@ -6,8 +6,9 @@ import { deleteContact } from 'redux/contactsSlice';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const { contacts } = useSelector(getContacts);
   const filter = useSelector(getFilter);
+
   const filterContactsOnChange = () => {
     if (!filter) {
       return contacts;
@@ -16,9 +17,6 @@ const ContactList = () => {
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-  // const filterContactsOnChange = contacts?.filter(contact =>
-  //   contact.name.toLowerCase().includes(filter.toLowerCase)
-  // );
 
   return (
     <List>

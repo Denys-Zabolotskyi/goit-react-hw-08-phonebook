@@ -5,7 +5,7 @@ import { getContacts } from 'redux/selectors';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const { contacts } = useSelector(getContacts);
 
   const handleSubmit = evt => {
     evt.preventDefault();
