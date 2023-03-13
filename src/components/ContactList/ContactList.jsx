@@ -20,6 +20,7 @@ const ContactList = ({ contact }) => {
     );
   };
   const handleDelete = id => dispatch(deleteContact(id));
+
   return (
     <List>
       {filterContactsOnChange().map(({ id, name, phone }) => (
