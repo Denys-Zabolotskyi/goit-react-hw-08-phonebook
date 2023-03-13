@@ -27,6 +27,23 @@ export const addContact = createAsyncThunk(
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
+  },
+  {
+    condition: ({ name, phone }, { getState }) => {
+      const { contacts } = getState();
+      const normalizedName = name.toLowerCase();
+      const normalizedPhone = phone.toLowerCase();
+      const result = contacts.items.find(({ name, phone }) => {
+        return (
+          name.toLowerCase() === normalizedName &&
+          phone.toLowerCase() === normalizedPhone
+        );
+      });
+      if (result) {
+        alert(`${name}. Phone: ${phone} is already in contacts.`);
+        return false;
+      }
+    },
   }
 );
 

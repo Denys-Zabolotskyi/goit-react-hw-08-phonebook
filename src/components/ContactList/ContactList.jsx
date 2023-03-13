@@ -19,7 +19,7 @@ const ContactList = ({ contact }) => {
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-  const handleDelete = () => dispatch(deleteContact(contact.id));
+  const handleDelete = id => dispatch(deleteContact(id));
   return (
     <List>
       {filterContactsOnChange().map(({ id, name, phone }) => (
