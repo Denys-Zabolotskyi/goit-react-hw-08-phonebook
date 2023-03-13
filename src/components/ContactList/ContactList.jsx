@@ -5,7 +5,7 @@ import { getContacts, getFilter } from 'redux/selectors';
 
 import { deleteContact } from 'redux/operations';
 
-const ContactList = ({ contact }) => {
+const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
@@ -19,7 +19,6 @@ const ContactList = ({ contact }) => {
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-  const handleDelete = id => dispatch(deleteContact(id));
 
   return (
     <List>
@@ -28,7 +27,7 @@ const ContactList = ({ contact }) => {
           <p>
             {name} : {phone}
           </p>
-          <Button onClick={handleDelete}>Delete</Button>
+          <Button onClick={() => dispatch(deleteContact(id))}>Delete</Button>
         </Item>
       ))}
     </List>

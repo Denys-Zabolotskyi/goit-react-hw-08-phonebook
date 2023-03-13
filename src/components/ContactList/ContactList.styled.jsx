@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const List = styled.ul`
-  padding:10px;
+  padding: 10px;
   background-color: #cccccc;
 `;
 
@@ -9,16 +9,12 @@ export const Item = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  // &:not(:last-child) {
-  //   align-items: baseline;
-}
 `;
 
 export const Button = styled.button`
   height: 35px;
-  padding:5px;
+  padding: 5px;
   width: 100px;
-  hig
   font-weight: 400;
   font-size: 15px;
   line-height: 1.25;
