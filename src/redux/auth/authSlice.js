@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register } from './auth-operations';
+import { register, logIn, logOut } from './authOperations';
 
 const InitialAuthState = {
   user: {},
   token: null,
-  isLogin: false,
+  isLoggedIn: false,
   isLoading: false,
   error: null,
 };
@@ -15,6 +15,7 @@ const authSlice = createSlice({
 
   extraReducers: builder => {
     builder
+      ////////////register///////////////////
       .addCase(register.pending, state => {
         state.isLoading = true;
         state.error = null;
@@ -24,11 +25,48 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = user;
         state.token = token;
-        state.isLogin = true;
+        state.isLoggedIn = true;
         // state.error = null;
         // state.items = action.payload;
       })
       .addCase(register.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      ////////////logIn///////////////////
+      .addCase(logIn.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(logIn.fulfilled, (state, { payload }) => {
+        const { user, token } = payload;
+        state.isLoading = false;
+        state.user = user;
+        state.token = token;
+        state.isLoggedIn = true;
+        // state.error = null;
+        // state.items = action.payload;
+      })
+      .addCase(logIn.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      ////////////logOut///////////////////
+
+      .addCase(logOut.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(logOut.fulfilled, (state, { payload }) => {
+        // const { user, token } = payload;
+        state.isLoading = false;
+        state.user = {};
+        state.token = null;
+        state.isLoggedIn = false;
+        // state.error = null;
+        // state.items = action.payload;
+      })
+      .addCase(logOut.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       });

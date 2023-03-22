@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://6404c01f80d9c5c7bacfadee.mockapi.io/api';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts');
-
+      console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -27,18 +27,18 @@ export const addContact = createAsyncThunk(
     }
   },
   {
-    condition: ({ name, phone }, { getState }) => {
+    condition: ({ name, number }, { getState }) => {
       const { contacts } = getState();
       const normalizedName = name.toLowerCase();
-      const normalizedPhone = phone.toLowerCase();
-      const result = contacts.items.find(({ name, phone }) => {
+      const normalizedNumber = number.toLowerCase();
+      const result = contacts.items.find(({ name, number }) => {
         return (
           name.toLowerCase() === normalizedName &&
-          phone.toLowerCase() === normalizedPhone
+          number.toLowerCase() === normalizedNumber
         );
       });
       if (result) {
-        alert(`${name}. Phone: ${phone} is already in contacts.`);
+        alert(`${name}. Phone: ${number} is already in contacts.`);
         return false;
       }
     },

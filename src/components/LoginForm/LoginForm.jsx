@@ -13,23 +13,22 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/authOperations';
+import { logIn } from 'redux/auth/authOperations';
 
 const theme = createTheme();
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useAuth();
 
   const handleSubmit = e => {
     e.preventDefault();
-    const name = e.target.username.value;
+
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ name, email, password });
+    console.log({ email, password });
     dispatch(
-      register({
-        name,
+      logIn({
         email,
         password,
       })
@@ -58,7 +57,7 @@ export const RegisterForm = () => {
           }}
         >
           <Typography component="h1" variant="h5">
-            Sign up
+            Sign in
           </Typography>
           <Box
             component="form"
@@ -67,7 +66,7 @@ export const RegisterForm = () => {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -76,7 +75,7 @@ export const RegisterForm = () => {
                   name="username"
                   autoComplete="family-name"
                 />
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
                 <TextField
                   required
@@ -95,7 +94,7 @@ export const RegisterForm = () => {
                   label="Password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
+                  autoComplete="password"
                 />
               </Grid>
             </Grid>
@@ -106,7 +105,7 @@ export const RegisterForm = () => {
               sx={{ mt: 3, mb: 2 }}
               // color="#8c98ba"
             >
-              Sign Up
+              Sign in
             </Button>
           </Box>
         </Box>

@@ -1,11 +1,11 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const Container = styled.div`
   width: 600px;
   margin: 0 auto;
   text-align: center;
   background-color: rgb(238, 238, 238);
-`
+`;
 export const MainTitle = styled.h1`
   padding-top: 30px;
   padding-bottom: 30px;
