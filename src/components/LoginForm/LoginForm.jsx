@@ -26,7 +26,6 @@ export const LoginForm = () => {
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ email, password });
     dispatch(
       logIn({
         email,
@@ -40,9 +39,6 @@ export const LoginForm = () => {
   if (isLoggedIn) {
     return <Navigate to="/contacts" />;
   }
-  // {
-  //   isLoggedIn && <Link to="/contacts">Contacts</Link>;
-  // }
 
   return (
     <ThemeProvider theme={theme}>

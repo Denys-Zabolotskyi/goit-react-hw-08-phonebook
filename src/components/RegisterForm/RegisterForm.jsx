@@ -26,7 +26,6 @@ export const RegisterForm = () => {
     const name = e.target.username.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ name, email, password });
     dispatch(
       register({
         name,
