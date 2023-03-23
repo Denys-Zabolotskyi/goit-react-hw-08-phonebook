@@ -33,13 +33,13 @@ export const FormButton = styled.button`
   border: 2px solid #fff;
   font-size: 20px;
   color: #fff;
-  background-color: #8c98ba;
+  background-color: #6ebadb;
   text-align: center;
   transition: all 200ms linear;
   cursor: pointer;
   :hover {
-    border: 2px solid #8c98ba;
-    color: #8c98ba;
+    border: 2px solid #6ebadb;
+    color: #6ebadb;
     background-color: #fff;
   }
 `;

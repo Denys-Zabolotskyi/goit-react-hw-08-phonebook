@@ -62,16 +62,6 @@ export const LoginForm = () => {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              {/* <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="Username"
-                  label="Username"
-                  name="username"
-                  autoComplete="family-name"
-                />
-              </Grid> */}
               <Grid item xs={12}>
                 <TextField
                   required
