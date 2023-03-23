@@ -10,7 +10,8 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  margin-top:10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 210px;
   font-weight: 400;
   font-size: 15px;

@@ -1,21 +1,24 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
+  max-width: 400px;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
+  padding: 0 10px;
   border: 2px solid gray;
+  margin-bottom: 10px;
 `;
 
 export const FormLabel = styled.label`
-  margin-top:10px;
+  margin-top: 10px;
   font-weight: 400;
   font-size: 20px;
   line-height: 1.25;
 `;
 
 export const FormInput = styled.input`
-  margin-top:10px;
+  margin-top: 10px;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.25;

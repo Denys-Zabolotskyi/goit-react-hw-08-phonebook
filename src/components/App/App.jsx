@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks/useAuth';
 import { useEffect } from 'react';
-import { PublicRoute } from './PublicRoute';
-import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from '../Routes/PublicRoute';
+import { PrivateRoute } from '../Routes/PrivateRoute';
 
 const HomePage = lazy(() => import('../../pages/HomePage'));
 const RegisterPage = lazy(() => import('../../pages/RegisterPage'));

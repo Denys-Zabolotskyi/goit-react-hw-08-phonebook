@@ -40,9 +40,6 @@ export const RegisterForm = () => {
   if (isLoggedIn) {
     return <Navigate to="/contacts" />;
   }
-  // {
-  //   isLoggedIn && <Link to="/contacts">Contacts</Link>;
-  // }
 
   return (
     <ThemeProvider theme={theme}>
@@ -103,7 +100,6 @@ export const RegisterForm = () => {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              // color="#8c98ba"
             >
               Sign Up
             </Button>

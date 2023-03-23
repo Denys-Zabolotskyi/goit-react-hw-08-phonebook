@@ -4,7 +4,6 @@ import { Container } from './SharedLayout.styled';
 import { Suspense } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { AppBar } from 'components/AppBar/AppBar';
-// import { Loader } from 'components/Loader/Loader';
 
 export const SharedLayout = () => {
   return (

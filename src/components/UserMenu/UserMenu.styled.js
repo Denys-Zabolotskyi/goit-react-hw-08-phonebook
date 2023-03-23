@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   gap: 12px;
 `;
 
-export const Button = styled.button``;
 export const LogoutButton = styled.button`
   /* margin: 15px auto 10px; */
   width: 100px;
@@ -14,7 +13,7 @@ export const LogoutButton = styled.button`
   border: none;
   border-radius: 10px;
   border: 2px solid #fff;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   background-color: #8c98ba;
   text-align: center;
