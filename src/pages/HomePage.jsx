@@ -22,11 +22,11 @@ export default function Home() {
         </MainTitle>
 
         <TitleInfoText>
-          Address Book and Contacts is a simple contacts application. You can
-          add people contact informations to the Address Book and Contacts, you
-          can edit these informations and you can call on these people quickly
-          with PHONEBOOK application. You can now easily communicate via Address
-          Book and Contacts application.
+          Phonebook is a web application that allows you to easily store and
+          manage your contacts. You can add and delete contacts, as well as
+          quickly find them by filtering by name. To use the Phonebook, you need
+          to log in to the application or register if you don't have an account
+          yet. Use Phonebook to make your life more organized and productive!
         </TitleInfoText>
       </TitleBox>
     </HeroSection>
