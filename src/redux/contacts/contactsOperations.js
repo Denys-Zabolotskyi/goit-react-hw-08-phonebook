@@ -30,14 +30,14 @@ export const addContact = createAsyncThunk(
       const { contacts } = getState();
       const normalizedName = name.toLowerCase();
       const normalizedNumber = number.toLowerCase();
-      const result = contacts.items.find(({ name, number }) => {
+      const result = contacts.items.find(({ name }) => {
         return (
           name.toLowerCase() === normalizedName &&
           number.toLowerCase() === normalizedNumber
         );
       });
       if (result) {
-        alert(`${name}. Phone: ${number} is already in contacts.`);
+        alert(`${name} is already in contacts.`);
         return false;
       }
     },
